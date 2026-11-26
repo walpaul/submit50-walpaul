@@ -95,6 +95,17 @@
   .item h4 { margin: 0 0 4px; font-size: 1.05rem; }
   .item p { margin: 0; color: var(--muted); font-size: .93rem; }
   .section-cta { margin-top: 28px; }
+
+  /* Photo gallery */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+  @media (max-width: 720px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; } .gallery figcaption { font-size: .8rem; padding: 20px 8px 8px; } }
+  .gallery figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: #ddd; position: relative; }
+  .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .gallery figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 24px 12px 10px; color: #fff; font-size: .9rem; font-weight: 600;
+    background: linear-gradient(transparent, rgba(0,0,0,.65));
+  }
   .section-cta .btn-gold { background: var(--green); color: #fff; }
 
   /* Contact */
@@ -195,6 +206,14 @@
         <div class="item"><h4>Rice paddy planting</h4><p>We plant your rice paddy for you.</p></div>
         <div class="item"><h4>Harvesting</h4><p>We harvest your crop for you.</p></div>
         <div class="item"><h4>Drone spraying</h4><p>Fertilizers, insecticides and boosters sprayed by drone.</p></div>
+      </div>
+      <div class="gallery">
+        <figure><img src="images/farming/tractor.jpg" alt="GWAM's blue Lovol tractor parked under a tree" loading="lazy"><figcaption>Our tractor</figcaption></figure>
+        <figure><img src="images/farming/watermelon-harvest.jpg" alt="Large pile of harvested watermelons on a tarp" loading="lazy"><figcaption>Watermelon harvest</figcaption></figure>
+        <figure><img src="images/farming/watermelon-measured.jpg" alt="Watermelon measured with a tape measure, over 30 cm long" loading="lazy"><figcaption>Size check at harvest</figcaption></figure>
+        <figure><img src="images/farming/rice-paddy-bags.jpg" alt="Bags of rice paddy in storage" loading="lazy"><figcaption>Rice paddy in storage</figcaption></figure>
+        <figure><img src="images/farming/soil-testing.jpg" alt="Handheld soil meter reading in the field" loading="lazy"><figcaption>Soil testing in the field</figcaption></figure>
+        <figure><img src="images/farming/grain-moisture.jpg" alt="Grain moisture meter showing 7.4% moisture" loading="lazy"><figcaption>Grain moisture check</figcaption></figure>
       </div>
       <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello GWAM, I'd like to book a farm service." href="#contact">Book a farm service</a></div>
     </div>

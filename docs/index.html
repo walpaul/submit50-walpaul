@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guam | Sewing Supplies, Farm Services, Surveying</title>
+<meta name="description" content="Guam: sewing machines and tailoring supplies, tractor and drone farm services, and GPS land surveying and engineering.">
+<style>
+  :root {
+    --green: #1f5a3a;
+    --green-dark: #143d27;
+    --gold: #e0a526;
+    --cream: #faf7f0;
+    --ink: #1c2420;
+    --muted: #5b6660;
+    --card: #ffffff;
+    --line: #e4e0d4;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--green-dark); color: #fff;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: .04em; text-decoration: none; }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { text-decoration: none; font-size: .95rem; opacity: .9; }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 999px;
+    font-weight: 700; text-decoration: none; border: 2px solid transparent;
+  }
+  .btn-gold { background: var(--gold); color: var(--green-dark); }
+  .btn-gold:hover { filter: brightness(1.05); }
+  .btn-outline { border-color: #fff; color: #fff; }
+  .btn-outline:hover { background: rgba(255,255,255,.1); }
+  .btn-small { padding: 8px 14px; font-size: .9rem; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: #fff; padding: 72px 0 80px;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 16px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p { font-size: 1.15rem; max-width: 640px; opacity: .92; margin: 0 0 28px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Division cards */
+  .divisions { margin-top: -44px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; text-decoration: none; display: block;
+    box-shadow: 0 6px 20px rgba(0,0,0,.06); transition: transform .15s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .card h3 { margin: 12px 0 6px; font-size: 1.2rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: grid; place-items: center; background: #eef4ef; color: var(--green);
+  }
+  .icon svg { width: 26px; height: 26px; }
+
+  /* Sections */
+  section.block { padding: 72px 0; }
+  section.block:nth-of-type(even) { background: #fff; }
+  .eyebrow { color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 6px 0 12px; line-height: 1.2; }
+  .lead { color: var(--muted); max-width: 680px; margin: 0 0 32px; font-size: 1.05rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .item {
+    background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
+  }
+  section.block:nth-of-type(odd) .item { background: #fff; }
+  .item h4 { margin: 0 0 4px; font-size: 1.05rem; }
+  .item p { margin: 0; color: var(--muted); font-size: .93rem; }
+  .section-cta { margin-top: 28px; }
+  .section-cta .btn-gold { background: var(--green); color: #fff; }
+
+  /* Contact */
+  .contact { background: var(--green-dark); color: #fff; padding: 72px 0; }
+  .contact .eyebrow { color: var(--gold); }
+  .contact .lead { color: rgba(255,255,255,.85); }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .contact-item {
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius); padding: 20px; text-decoration: none; display: block;
+  }
+  .contact-item small { display: block; opacity: .75; text-transform: uppercase; letter-spacing: .06em; font-size: .75rem; }
+  .contact-item strong { font-size: 1.05rem; word-break: break-word; }
+
+  footer { background: #0e2a1b; color: rgba(255,255,255,.7); padding: 24px 0; font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+  /* Floating WhatsApp button */
+  .wa-float {
+    position: fixed; right: 16px; bottom: 16px; z-index: 20;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; color: #fff; display: grid; place-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  }
+  .wa-float svg { width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">GUAM<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#sewing">Sewing Supplies</a>
+      <a href="#farming">Farm Services</a>
+      <a href="#surveying">Surveying</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold btn-small" data-wa href="#contact">WhatsApp us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>One company.<br><em>Three ways</em> to get your work done.</h1>
+      <p>Guam supplies sewing machines and tailoring accessories, runs tractors and spray drones on your farm, and surveys your land with GPS.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" data-wa href="#contact">Chat on WhatsApp</a>
+        <a class="btn btn-outline" href="#services">See our services</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap divisions" id="services">
+    <div class="cards">
+      <a class="card" href="#sewing">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16"/><path d="M6 18V8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v3h-6v7"/><path d="M15 11v3"/></svg></div>
+        <h3>Sewing &amp; Tailoring Supplies</h3>
+        <p>Sewing machines, threads, zippers, needles and everything a tailor needs.</p>
+      </a>
+      <a class="card" href="#farming">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="18" cy="18" r="2"/><path d="M10 17h6"/><path d="M4 14V8h6l2 5h6v3"/><path d="M8 8V5"/></svg></div>
+        <h3>Farm Services</h3>
+        <p>Tractor work, rice planting, harvesting and drone spraying.</p>
+      </a>
+      <a class="card" href="#surveying">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 6l-6 16"/><path d="M12 6l6 16"/><path d="M12 6v16"/><circle cx="12" cy="4" r="2"/></svg></div>
+        <h3>Surveying &amp; Engineering</h3>
+        <p>GPS land surveys, topographic surveys, engineering and environmental impact assessments.</p>
+      </a>
+    </div>
+  </div>
+
+  <section class="block" id="sewing">
+    <div class="wrap">
+      <div class="eyebrow">Sewing &amp; Tailoring Supplies</div>
+      <h2>Everything your workshop needs, from the machine to the last needle.</h2>
+      <p class="lead">Whether you run one machine or a full tailoring workshop, we stock the machines and accessories that keep you sewing.</p>
+      <div class="grid">
+        <div class="item"><h4>Sewing machines</h4><p>Industrial and domestic machines, including the Juki DDL-8700.</p></div>
+        <div class="item"><h4>Threads</h4><p>Sewing threads for everyday tailoring and production work.</p></div>
+        <div class="item"><h4>Zippers</h4><p>Zippers for garments, bags and more.</p></div>
+        <div class="item"><h4>Needles</h4><p>Machine and hand needles.</p></div>
+        <div class="item"><h4>Tailoring accessories</h4><p>Ask us for any other accessory you need, and we'll find it.</p></div>
+      </div>
+      <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello Guam, I'd like to ask about sewing machines and tailoring supplies." href="#contact">Ask for prices</a></div>
+    </div>
+  </section>
+
+  <section class="block" id="farming">
+    <div class="wrap">
+      <div class="eyebrow">Farm Services</div>
+      <h2>We bring the machines and the team to your farm.</h2>
+      <p class="lead">From preparing the land to harvest day, hire our tractor, planting and drone spraying services when you need them.</p>
+      <div class="grid">
+        <div class="item"><h4>Tractor services</h4><p>We run the tractor on your farm, with our own operator.</p></div>
+        <div class="item"><h4>Rice paddy planting</h4><p>We plant your rice paddy for you.</p></div>
+        <div class="item"><h4>Harvesting</h4><p>We harvest your crop for you.</p></div>
+        <div class="item"><h4>Drone spraying</h4><p>Fertilizers, insecticides and boosters sprayed by drone.</p></div>
+      </div>
+      <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello Guam, I'd like to book a farm service." href="#contact">Book a farm service</a></div>
+    </div>
+  </section>
+
+  <section class="block" id="surveying">
+    <div class="wrap">
+      <div class="eyebrow">Surveying &amp; Engineering</div>
+      <h2>Know your land before you build, buy or farm.</h2>
+      <p class="lead">With GPS survey equipment, we map your land accurately and support your project from survey to engineering and environmental assessment.</p>
+      <div class="grid">
+        <div class="item"><h4>Land surveying</h4><p>GPS land surveys for plots, farms and projects.</p></div>
+        <div class="item"><h4>Topographic surveys</h4><p>Ground levels and features mapped for planning and design.</p></div>
+        <div class="item"><h4>Engineering</h4><p>Engineering support for your project.</p></div>
+        <div class="item"><h4>Environmental impact assessment</h4><p>EIA for projects that need one.</p></div>
+      </div>
+      <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello Guam, I'd like a quote for a survey." href="#contact">Request a survey quote</a></div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact Guam</div>
+    <h2>Tell us what you need.</h2>
+    <p class="lead">Message us on WhatsApp for the fastest reply, or call or email us.</p>
+    <div class="contact-grid">
+      <a class="contact-item" data-wa href="#contact"><small>WhatsApp</small><strong data-field="whatsappDisplay"></strong></a>
+      <a class="contact-item" id="phone-link" href="#contact"><small>Phone</small><strong data-field="phone"></strong></a>
+      <a class="contact-item" id="email-link" href="#contact"><small>Email</small><strong data-field="email"></strong></a>
+      <div class="contact-item"><small>Location</small><strong data-field="location"></strong></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> Guam. All rights reserved.</span>
+    <span>Sewing Supplies &middot; Farm Services &middot; Surveying</span>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa href="#contact" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1.1.2 1.6.1.6-.1 1.2-.5 1.5-1 .2-.4.2-.8.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+  // ===== EDIT YOUR CONTACT DETAILS HERE =====
+  // whatsapp: country code + number, digits only, e.g. "15551234567"
+  const CONTACT = {
+    whatsapp: "",
+    phone: "",
+    email: "",
+    location: ""
+  };
+  // ==========================================
+
+  const missing = "Add in CONTACT settings";
+  const waDigits = CONTACT.whatsapp.replace(/\D/g, "");
+
+  document.querySelectorAll("[data-wa]").forEach(el => {
+    if (!waDigits) return;
+    const msg = el.dataset.msg || "Hello Guam, I'd like to ask about your services.";
+    el.href = "https://wa.me/" + waDigits + "?text=" + encodeURIComponent(msg);
+    el.target = "_blank";
+    el.rel = "noopener";
+  });
+
+  const fields = {
+    whatsappDisplay: CONTACT.whatsapp ? "+" + waDigits : missing,
+    phone: CONTACT.phone || missing,
+    email: CONTACT.email || missing,
+    location: CONTACT.location || missing
+  };
+  document.querySelectorAll("[data-field]").forEach(el => {
+    el.textContent = fields[el.dataset.field];
+  });
+  if (CONTACT.phone) document.getElementById("phone-link").href = "tel:" + CONTACT.phone.replace(/\s/g, "");
+  if (CONTACT.email) document.getElementById("email-link").href = "mailto:" + CONTACT.email;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

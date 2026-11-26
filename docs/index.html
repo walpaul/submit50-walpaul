@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GWAM | Sewing Supplies, Farm Services, Surveying</title>
 <meta name="description" content="GWAM: sewing machines and tailoring supplies, tractor and drone farm services, and GPS land surveying and engineering.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23143d27'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-weight='800' font-size='38' fill='%23e0a526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --green: #1f5a3a;
@@ -108,6 +109,32 @@
   }
   .section-cta .btn-gold { background: var(--green); color: #fff; }
 
+  /* How it works */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; counter-reset: step; }
+  .step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--gold); color: var(--green-dark); font-weight: 800; margin-bottom: 10px;
+  }
+  .step h4 { margin: 0 0 4px; font-size: 1.05rem; }
+  .step p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+  /* Quote form */
+  .quote-form {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; display: grid; gap: 14px; max-width: 640px;
+  }
+  .quote-form label { display: grid; gap: 6px; font-weight: 600; font-size: .95rem; }
+  .quote-form input, .quote-form select, .quote-form textarea {
+    font: inherit; padding: 12px; border: 1px solid #cfcabb; border-radius: 10px; background: var(--cream); color: var(--ink); width: 100%;
+  }
+  .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { outline: 2px solid var(--green); border-color: var(--green); }
+  .quote-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .quote-form .row { grid-template-columns: 1fr; } }
+  .quote-form button { justify-self: start; cursor: pointer; border: none; background: var(--green); color: #fff; font-size: 1rem; }
+  .form-note { color: var(--muted); font-size: .85rem; margin: 0; }
+
   /* Contact */
   .contact { background: var(--green-dark); color: #fff; padding: 72px 0; }
   .contact .eyebrow { color: var(--gold); }
@@ -142,6 +169,7 @@
       <a href="#sewing">Sewing Supplies</a>
       <a href="#farming">Farm Services</a>
       <a href="#surveying">Surveying</a>
+      <a href="#quote">Get a quote</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="btn btn-gold btn-small" data-wa href="#contact">WhatsApp us</a>
@@ -235,6 +263,59 @@
       <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello GWAM, I'd like a quote for a survey." href="#contact">Request a survey quote</a></div>
     </div>
   </section>
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h2>Getting started is simple.</h2>
+      <p class="lead">Whatever you need from GWAM, the steps are the same.</p>
+      <div class="steps">
+        <div class="step"><h4>Tell us what you need</h4><p>Send us a message on WhatsApp, call us, or fill in the quote form below.</p></div>
+        <div class="step"><h4>Get your price</h4><p>We'll reply with the price and when we can deliver or do the job.</p></div>
+        <div class="step"><h4>We get it done</h4><p>You get your supplies, or our team does the work on your farm or land.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="quote">
+    <div class="wrap">
+      <div class="eyebrow">Request a quote</div>
+      <h2>Ask for a price.</h2>
+      <p class="lead">Fill in the form and press send. It opens WhatsApp with your request ready to send to us.</p>
+      <form class="quote-form" id="quote-form">
+        <div class="row">
+          <label>Your name<input name="name" required autocomplete="name"></label>
+          <label>Your location<input name="location" placeholder="Town or region" required></label>
+        </div>
+        <label>What do you need?
+          <select name="service" required>
+            <option value="">Choose a service</option>
+            <optgroup label="Sewing & Tailoring Supplies">
+              <option>Sewing machines</option>
+              <option>Threads, zippers, needles or accessories</option>
+            </optgroup>
+            <optgroup label="Farm Services">
+              <option>Tractor services</option>
+              <option>Rice paddy planting</option>
+              <option>Harvesting</option>
+              <option>Drone spraying</option>
+              <option>Soil testing</option>
+              <option>Grain moisture testing</option>
+            </optgroup>
+            <optgroup label="Surveying & Engineering">
+              <option>Land surveying</option>
+              <option>Topographic survey</option>
+              <option>Engineering</option>
+              <option>Environmental impact assessment</option>
+            </optgroup>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Details<textarea name="details" rows="4" placeholder="For example: size of the farm, quantity, or the machine model"></textarea></label>
+        <button class="btn" type="submit">Send on WhatsApp</button>
+        <p class="form-note">Nothing is stored on this website. Your request goes straight to our WhatsApp.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
 <section class="contact" id="contact">
@@ -305,6 +386,20 @@
     phoneList.textContent = missing;
   }
   if (CONTACT.email) document.getElementById("email-link").href = "mailto:" + CONTACT.email;
+
+  document.getElementById("quote-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const lines = [
+      "Hello GWAM, I'd like a quote.",
+      "Name: " + f.get("name"),
+      "Location: " + f.get("location"),
+      "Service: " + f.get("service")
+    ];
+    if (f.get("details").trim()) lines.push("Details: " + f.get("details").trim());
+    const url = "https://wa.me/" + waDigits + "?text=" + encodeURIComponent(lines.join("\n"));
+    window.open(url, "_blank", "noopener");
+  });
 
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>

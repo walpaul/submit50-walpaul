@@ -220,10 +220,10 @@
   <div class="wrap">
     <div class="eyebrow">Contact GWAM</div>
     <h2>Tell us what you need.</h2>
-    <p class="lead">Message us on WhatsApp for the fastest reply, or call or email us.</p>
+    <p class="lead">Based in Dar es Salaam, Tanzania. Message us on WhatsApp for the fastest reply, or call or email us.</p>
     <div class="contact-grid">
       <a class="contact-item" data-wa href="#contact"><small>WhatsApp</small><strong data-field="whatsappDisplay"></strong></a>
-      <a class="contact-item" id="phone-link" href="#contact"><small>Phone</small><strong data-field="phone"></strong></a>
+      <div class="contact-item"><small>Phone</small><strong id="phone-list"></strong></div>
       <a class="contact-item" id="email-link" href="#contact"><small>Email</small><strong data-field="email"></strong></a>
       <div class="contact-item"><small>Location</small><strong data-field="location"></strong></div>
     </div>
@@ -245,10 +245,10 @@
   // ===== EDIT YOUR CONTACT DETAILS HERE =====
   // whatsapp: country code + number, digits only, e.g. "15551234567"
   const CONTACT = {
-    whatsapp: "",
-    phone: "",
-    email: "",
-    location: ""
+    whatsapp: "+255679801826",
+    phones: ["+255765801826", "+255693779942"],
+    email: "gwamtanzania@gmail.com",
+    location: "Dar es Salaam, Tanzania"
   };
   // ==========================================
 
@@ -265,14 +265,24 @@
 
   const fields = {
     whatsappDisplay: CONTACT.whatsapp ? "+" + waDigits : missing,
-    phone: CONTACT.phone || missing,
     email: CONTACT.email || missing,
     location: CONTACT.location || missing
   };
   document.querySelectorAll("[data-field]").forEach(el => {
     el.textContent = fields[el.dataset.field];
   });
-  if (CONTACT.phone) document.getElementById("phone-link").href = "tel:" + CONTACT.phone.replace(/\s/g, "");
+  const phoneList = document.getElementById("phone-list");
+  if (CONTACT.phones.length) {
+    CONTACT.phones.forEach((num, i) => {
+      if (i) phoneList.appendChild(document.createElement("br"));
+      const a = document.createElement("a");
+      a.href = "tel:" + num.replace(/\s/g, "");
+      a.textContent = num;
+      phoneList.appendChild(a);
+    });
+  } else {
+    phoneList.textContent = missing;
+  }
   if (CONTACT.email) document.getElementById("email-link").href = "mailto:" + CONTACT.email;
 
   document.getElementById("year").textContent = new Date().getFullYear();

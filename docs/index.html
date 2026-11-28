@@ -119,6 +119,9 @@
 
   /* Photo gallery */
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+  .gallery.portrait { grid-template-columns: repeat(4, 1fr); }
+  .gallery.portrait img { aspect-ratio: 3 / 4; }
+  @media (max-width: 720px) { .gallery.portrait { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 720px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; } .gallery figcaption { font-size: .8rem; padding: 20px 8px 8px; } }
   .gallery figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: #ddd; position: relative; }
   .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -244,11 +247,17 @@
       <h2>Everything your workshop needs, from the machine to the last needle.</h2>
       <p class="lead">Whether you run one machine or a full tailoring workshop, we stock the machines and accessories that keep you sewing.</p>
       <div class="grid">
-        <div class="item"><h4>Sewing machines</h4><p>Industrial and domestic machines, including the Juki DDL-8700.</p></div>
+        <div class="item"><h4>Sewing machines</h4><p>Industrial machines, including the JUKE 8700, 8700D, 747 overlock and 20U43 zigzag.</p></div>
         <div class="item"><h4>Threads</h4><p>Sewing threads for everyday tailoring and production work.</p></div>
         <div class="item"><h4>Zippers</h4><p>Zippers for garments, bags and more.</p></div>
         <div class="item"><h4>Needles</h4><p>Machine and hand needles.</p></div>
         <div class="item"><h4>Tailoring accessories</h4><p>Ask us for any other accessory you need, and we'll find it.</p></div>
+      </div>
+      <div class="gallery portrait">
+        <figure><img src="images/sewing/juke-8700d.jpg" alt="JUKE 8700D industrial sewing machine with digital control panel" loading="lazy"><figcaption>JUKE 8700D</figcaption></figure>
+        <figure><img src="images/sewing/juke-8700.jpg" alt="JUKE 8700 industrial sewing machine" loading="lazy"><figcaption>JUKE 8700</figcaption></figure>
+        <figure><img src="images/sewing/juke-747-overlock.jpg" alt="JUKE 747 industrial overlock machine" loading="lazy"><figcaption>JUKE 747 overlock</figcaption></figure>
+        <figure><img src="images/sewing/juke-20u43-zigzag.jpg" alt="JUKE 20U43 industrial zigzag sewing machine" loading="lazy"><figcaption>JUKE 20U43 zigzag</figcaption></figure>
       </div>
       <p class="note"><strong>Delivery:</strong> we deliver within Dar es Salaam. For customers elsewhere in Tanzania or East Africa, we deliver your order to your transport agent in Dar es Salaam, who sends it on to you.</p>
       <div class="section-cta"><a class="btn btn-gold" data-wa data-msg="Hello GWAM, I'd like to ask about sewing machines and tailoring supplies." href="#contact">Ask for prices</a><a class="ig-link" href="https://www.instagram.com/gwam_tailoring/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@gwam_tailoring</a></div>

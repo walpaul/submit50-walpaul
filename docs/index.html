@@ -121,6 +121,8 @@
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
   .gallery.two { grid-template-columns: repeat(2, 1fr); }
   .gallery.two img { aspect-ratio: 16 / 9; }
+  .gallery figure.wide { grid-column: 1 / -1; }
+  .gallery figure.wide img { aspect-ratio: 21 / 9; }
   .gallery.portrait { grid-template-columns: repeat(4, 1fr); }
   .gallery.portrait img { aspect-ratio: 3 / 4; }
   @media (max-width: 720px) { .gallery.portrait { grid-template-columns: repeat(2, 1fr); } }
@@ -325,6 +327,7 @@
         <div class="item"><h4>GNSS equipment</h4><p>GNSS / GPS survey equipment.</p></div>
       </div>
       <div class="gallery two">
+        <figure class="wide"><img src="images/rentals/wheel-loader-clearing.jpg" alt="AOCHEN LT30 wheel loader clearing bush on a site" loading="lazy" style="object-position: center 60%"><figcaption>Wheel loader clearing land</figcaption></figure>
         <figure><img src="images/rentals/drone-operator.jpg" alt="GWAM operator with the remote controller, preparing a spray drone in the field" loading="lazy"><figcaption>Our operator with the spray drone</figcaption></figure>
         <figure><img style="object-position: 0% center" src="images/rentals/spray-drone.jpg" alt="Agricultural spray drone ready for take-off on a farm" loading="lazy"><figcaption>Spray drone ready for take-off</figcaption></figure>
       </div>
